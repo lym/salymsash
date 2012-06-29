@@ -1,6 +1,6 @@
 require 'digest'
 class User < ActiveRecord::Base
-    attr_accessible :email, :hashed_password
+    attr_accessible :email, :password, :password_confirmation
 	attr_accessor :password
 
 	validates :email, :uniqueness => true, 
