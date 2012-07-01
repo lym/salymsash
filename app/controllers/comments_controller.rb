@@ -1,0 +1,23 @@
+class CommentsController < ApplicationController
+  before_filter :load_article
+
+  def create
+	@comment = @article.comments.new(params[:comment])
+	if @comment.save
+	  redirect_to @article, :notice => 'Thanks Comment Registered'
+	else
+	  redirect_to @article, :alert => 'Sorry Comment cannot be saved'
+	end
+  end
+
+  def destroy
+	@comment = @article.comments.find(params[:id])
+	@comment.destroy
+	redirect_to @article, :notice => 'Comment deleted'
+  end
+
+  private
+    def load_article
+	  @article = Article.find(params[:article_id])
+	end
+end
