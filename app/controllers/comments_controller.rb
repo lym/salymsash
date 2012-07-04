@@ -3,18 +3,29 @@ class CommentsController < ApplicationController
   before_filter :authenticate, :only => :destroy
 
   def create
-	@comment = @article.comments.new(params[:comment])
-	if @comment.save
-	  redirect_to @article, :notice => 'Thanks Comment Registered'
-	else
-	  redirect_to @article, :alert => 'Sorry Comment cannot be saved'
-	end
+    @comment = @article.comments.new(params[:comment])
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to @article, :notice => 'Thanks for your comment' }
+        format.js
+end
+    else
+      respond_to do |format|
+        format.html { redirect_to @article, :alert => 'Unable to add comment' }
+        format.js { render 'fail_create.js.erb' }
+    end
   end
+end
 
   def destroy
 	@article = current_user.articles.find(params[:article_id])
 	@comment = @article.comments.find(params[:id])
 	@comment.destroy
+    respond_to do |format|
+      format.html { redirect_to @article, :notice => 'Comment deleted' }
+      format.js
+    end
+
 	redirect_to @article, :notice => 'Comment deleted'
   end
 
