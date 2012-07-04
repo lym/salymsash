@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Salymsash</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="header">
-    <h1><%= link_to "Salym Senyonga", root_path %></h1>
+    <h1><%= link_to "Blog", root_path %></h1>
     <div id="user_bar">
       <% if logged_in? %>
         <%= link_to "New Article", new_article_path %> |
