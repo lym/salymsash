@@ -1,9 +1,13 @@
 Blog::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   root :to => 'articles#index'
   resources :articles do
     member do
-	  post :notify_friend
-	end
+	    post :notify_friend
+	  end
 	resources :comments
   end
 
