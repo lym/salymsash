@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
 
-
+group :production do
+  gem 'thin'
+end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -38,3 +36,4 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'activeadmin'
 gem 'meta_search', '>= 1.1.0.pre'
+gem 'heroku'
