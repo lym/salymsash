@@ -4,7 +4,7 @@ class ArticleTest < ActiveSupport::TestCase
   test "should create article" do
 	  article = Article.new
 
-	  article.user = users(:eugene)
+	  #article.user = users(:eugene)
 	  article.title = "Test article"
 	  article.body = "Test body"
 
