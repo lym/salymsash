@@ -1,0 +1,45 @@
+    <div class="navbar navbar-fixed-top">  
+      <div class="navbar-inner">  
+        <div class="container-fluid"> 
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">  
+            <span class="icon-bar"></span>  
+            <span class="icon-bar"></span>  
+            <span class="icon-bar"></span>  
+          </a> 
+ 
+          <div class="nav-collapse">  
+            <ul class="nav">  
+              <li class="active"><%= link_to "Salym Senyonga", root_path, :class => 'brand' %> </li>  
+              <li><a href="#about">About</a></li>  
+              <li><a href="#contact">Contact</a></li>  
+            </ul>  
+            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>  
+          </div><!--/.nav-collapse -->  
+        </div>  
+      </div>  
+    </div>  
+
+<!-- temporarily commented out 
+          <ul class="nav">
+            <li class="active"><%= link_to "Salym Senyonga", root_path, :class => 'brand' %></li>
+            <li><a href="#">About</a></li>  
+            <li><a href="#">Portfolio</a></li>  
+            <li><a href="#">Contact</a></li>
+            <li><%= link_to image_tag('twitter.png'), 'http://twitter.com/SalymSash' %></li>
+            <li><%= link_to image_tag('facebook.png'), 'http://facebook.com/salymsash' %></li>
+            <li><%= link_to image_tag('github.png'), 'http://github.com/lym' %></li>
+          </ul>
+
+          <div id="user_bar">
+            <% if logged_in? %>
+              <%= link_to "New Article", new_article_path %> |
+              <%= link_to "Edit Password", edit_user_path(current_user) %> |
+              <%= link_to "Logout", logout_path %>
+            <% else %>
+              <%= link_to "Login", login_path %>
+            <% end %>
+          </div><!-- user_bar -->
+        </div> <!--container -->  
+      </div> <!-- navbar-inner --> 
+    </div><!-- navbar navbar-fixed-top --> 
+

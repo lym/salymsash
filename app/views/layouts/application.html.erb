@@ -12,24 +12,35 @@
        More info: h5bp.com/i/378 -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+<!-- Le fav and touch icons -->  
+    <link rel="shortcut icon" href="twitter-bootstrap-v2/docs/examples/images/favicon.ico">  
+    <link rel="apple-touch-icon" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon.png">  
+    <link rel="apple-touch-icon" sizes="72x72" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-72x72.png">  
+    <link rel="apple-touch-icon" sizes="114x114" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-114x114.png"> 
 </head>
 <body>
+
   <%= render 'layouts/header' %>
-  <div class="container">
-<header class="jumbotron subhead" id="overview">
-  <h1>Default</h1>
-  </header>
-    <div class="row">
+	<div class ="container-fluid">
+	  <div class ="row-fluid">
       <div class="span12">
         <%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
         <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
-        <%= yield %>
-      </div>
-    </div>
-  </div>
-  <%= render 'layouts/footer' %>
+
+		  <div class ="span8">
+			<%= yield %>
+		  </div>
+	  </div><!-- row-fluid-->
+
+    <footer>  
+      <p><%= render 'layouts/footer' %></p>  
+    </footer>
+	</div><!-- container-fluid -->    
+
 </body>
 </html>

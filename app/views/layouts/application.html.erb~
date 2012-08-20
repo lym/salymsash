@@ -1,33 +1,65 @@
 <!DOCTYPE html>
-<html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <title>Salymsash</title>
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+<!-- Le fav and touch icons -->  
+    <link rel="shortcut icon" href="twitter-bootstrap-v2/docs/examples/images/favicon.ico">  
+    <link rel="apple-touch-icon" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon.png">  
+    <link rel="apple-touch-icon" sizes="72x72" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-72x72.png">  
+    <link rel="apple-touch-icon" sizes="114x114" href="twitter-bootstrap-v2/docs/examples/images/apple-touch-icon-114x114.png"> 
 </head>
 <body>
-  <div id="header">
-    <h1><%= link_to "Blog", root_path %></h1>
-    <div id="user_bar">
-      <% if logged_in? %>
-        <%= link_to "New Article", new_article_path %> |
-        <%= link_to "Edit Password", edit_user_path(current_user) %> |
-        <%= link_to "Logout", logout_path %>
-      <% else %>
-        <%= link_to "Login", login_path %>
-      <% end %>
-    </div>
-  </div>
-  <div id="main">
-    <%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
-    <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
-    <%= yield %>
-  </div>
 
-  <div id="footer">
-	salymsash
-  </div>
+<%= render 'layouts/header' %>
+	<div class ="container-fluid">
+    <div class ="row-fluid">
+      <div class ="span8">
+		    <%= image_tag("logo.png") %>
+		    <%= @page_title || t('.title') %>
+      </div>
+      <div class ="span4">
+       
+      </div>
+    </div>
+
+	<div class ="row-fluid">
+		<div class ="span4"><!-- side -->
+			<div class ="well sidebar-nav">
+				
+					<div id ="cart">
+						
+					</div>
+					<ul class ="nav nav-list">
+						<li> <%= link_to t('.home'), store_path %></li>
+						<li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+						<li><a href="http://www..../news"><%= t('.news') %></a></li>
+						<li><a href="http://www..../contact"><%= t('.contact') %></a></li>
+
+						
+					</ul>
+				</div><!-- .well -->
+			</div><!-- span4 -->
+
+		<div class ="span8">
+			<%= yield %>
+		</div>
+	</div><!-- row -->
+	</div><!-- container -->    
 
 </body>
 </html>
