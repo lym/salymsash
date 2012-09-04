@@ -3,8 +3,8 @@
     <%= link_to article.title, article %>
     <% if article.owned_by? current_user %>
 	  <span class="actions">
-	    <%= link_to "Edit", edit_article_path(article) %>
-	    <%= link_to "Delete", article, :confirm => "Are you sure?", :method => :delete %>
+      <%= link_to(image_tag("pen_alt2_16x16.png", :alt => 'Edit'), edit_article_path(article)) %>
+      <%= link_to(image_tag("x_alt_16x16.png", :alt => 'Delete'), article, :confirm => "Are you sure?", :method => :delete) %>
 	  </span>
 	<% end %>
   </h3>
