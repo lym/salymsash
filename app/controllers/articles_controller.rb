@@ -87,4 +87,9 @@ class ArticlesController < ApplicationController
     Notifier.email_friend(@article, params[:name], params[:email]).deliver
     redirect_to @article, :notice => "Successfully sent a message to your friend"
   end
+
+  def process_code_file
+    filename = "app/controllers/application_controller"
+    print CodeRay.scan_file(filename).div
+  end
 end

@@ -1,11 +1,12 @@
 class Article < ActiveRecord::Base
-    attr_accessible :body, :excerpt, :location, :published_at, :title, :category_ids
+  attr_accessible :body, :excerpt, :location, :published_at, :title, :category_ids, :code_file
 	validates :title, :presence => true
 	validates :body, :presence => true
 
 	belongs_to :user
 	has_and_belongs_to_many :categories
 	has_many :comments
+  has_attached_file :code_file
 	
 	scope :published, where("articles.published_at IS NOT NULL")
 	scope :draft, where("articles.published_at IS NULL")

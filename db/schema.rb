@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711174311) do
+ActiveRecord::Schema.define(:version => 20121005105724) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -50,11 +50,15 @@ ActiveRecord::Schema.define(:version => 20120711174311) do
     t.string   "title"
     t.text     "body"
     t.datetime "published_at"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "excerpt"
     t.string   "location"
     t.integer  "user_id"
+    t.string   "code_file_file_name"
+    t.string   "code_file_content_type"
+    t.integer  "code_file_file_size"
+    t.datetime "code_file_updated_at"
   end
 
   create_table "articles_categories", :id => false, :force => true do |t|
