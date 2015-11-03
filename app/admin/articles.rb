@@ -1,7 +1,9 @@
 ActiveAdmin.register Article do
-
-  action_item do
-    link_to "add code file", :action => "process_code_file"
+  show do |ad|
+    attributes_table do
+      row :title
+      row :body
+    end
   end
 
   form :html => { :enctype => "multipart/form-data" } do |f|
